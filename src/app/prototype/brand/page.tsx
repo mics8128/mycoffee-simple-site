@@ -147,13 +147,13 @@ function CounterDirection() {
 
         <figure className="counter-hero-image image-frame">
           <Image
-            src="/images/store-02.jpg"
-            alt="買咖啡的橘色咖啡吧台"
+            src="/brand/counter-brand-scene-cropped.webp"
+            alt="買咖啡橘色吧台的品牌情境影像"
             fill
             preload
             sizes="(max-width: 720px) 100vw, 56vw"
           />
-          <ImageStatus>現有實景 · 橘色吧台</ImageStatus>
+          <ImageStatus>品牌情境圖 · 由真實吧台照片延伸</ImageStatus>
         </figure>
       </section>
 
@@ -170,6 +170,24 @@ function CounterDirection() {
           想喝日常咖啡、看看當日手沖，或找一份輕食和甜點搭配，都從目前菜單開始。品項與供應狀況，以菜單與現場為準。
         </p>
         <a className="text-link" href={menuUrl} target="_blank" rel="noreferrer">查看最新菜單 <span aria-hidden="true">→</span></a>
+      </section>
+
+      <section className="counter-scenes page-shell" aria-labelledby="counter-scenes-title">
+        <div className="counter-scenes-copy">
+          <p className="section-label">COFFEE &amp; SOMETHING LIGHT</p>
+          <h2 id="counter-scenes-title">從一杯咖啡，到一份剛好的搭配。</h2>
+          <p>以下為實景延伸的原型情境圖，用來確認未來拍攝構圖；實際品項與供應以最新菜單和現場為準。</p>
+        </div>
+        <div className="counter-scenes-grid">
+          <figure className="counter-scene-photo image-frame">
+            <Image src="/brand/barista-brand-scene.webp" alt="吧台沖煮咖啡的品牌情境" fill sizes="(max-width: 720px) 100vw, 36vw" />
+            <ImageStatus>品牌情境圖 · 沖煮動作</ImageStatus>
+          </figure>
+          <figure className="counter-scene-photo image-frame">
+            <Image src="/brand/table-brand-scene.webp" alt="咖啡、巴斯克與佛卡夏的品牌情境" fill sizes="(max-width: 720px) 100vw, 36vw" />
+            <ImageStatus>品牌情境圖 · 餐點構圖</ImageStatus>
+          </figure>
+        </div>
       </section>
 
       <section className="counter-space page-shell" aria-labelledby="counter-space-title">
@@ -260,8 +278,8 @@ function StationDirection() {
 
       <section className="station-room page-shell" aria-labelledby="station-room-title">
         <figure className="station-room-photo image-frame">
-          <Image src="/images/store-04.jpg" alt="買咖啡店內桌椅實景" fill sizes="(max-width: 720px) 100vw, 50vw" />
-          <ImageStatus>現有實景 · 座位區</ImageStatus>
+          <Image src="/brand/seating-ai-retouched.webp" alt="買咖啡座位區的整理後品牌情境" fill sizes="(max-width: 720px) 100vw, 50vw" />
+          <ImageStatus>品牌情境圖 · 由座位實景延伸</ImageStatus>
         </figure>
         <div>
           <p className="section-label">A SHORT STOP, OR A LONGER ONE</p>
@@ -292,16 +310,12 @@ function TableDirection() {
           <Hours />
           <VisitActions />
         </div>
-        <div className="table-still-life" aria-label="咖啡與輕食圖片槽示意">
-          <figure className="table-cup image-frame">
-            <Image src="/images/ichef-real-01.jpg" alt="買咖啡現有的咖啡杯實景" fill preload sizes="(max-width: 720px) 100vw, 36vw" />
-            <ImageStatus>現有實景暫代 · 咖啡近照</ImageStatus>
+        <div className="table-still-life">
+          <figure className="table-scene image-frame">
+            <Image src="/brand/table-brand-scene.webp" alt="咖啡、巴斯克與佛卡夏的品牌情境" fill preload sizes="(max-width: 720px) 100vw, 52vw" />
+            <ImageStatus>品牌情境圖 · 由店內實景延伸</ImageStatus>
           </figure>
-          <div className="food-placeholder">
-            <span>COFFEE + PLATE</span>
-            <strong>輕食桌景<br />待補拍</strong>
-            <p>正式版需要咖啡與餐食同框的實拍；現階段不以其他圖片代替。</p>
-          </div>
+          <p className="table-scene-note">原型用生成構圖；實際品項、外觀與供應以最新菜單及現場為準。</p>
         </div>
       </section>
 

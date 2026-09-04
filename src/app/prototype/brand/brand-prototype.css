@@ -343,6 +343,47 @@
   line-height: 1.8;
 }
 
+.counter-scenes {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: end;
+  padding-bottom: clamp(3.4rem, 7vw, 6.5rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.counter-scenes-copy h2 {
+  max-width: 10ch;
+  margin-top: 0.6rem;
+}
+
+.counter-scenes-copy > p:not(.section-label) {
+  max-width: 27rem;
+  margin-top: 1.15rem;
+  color: #504740;
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+.counter-scenes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.counter-scene-photo {
+  min-height: clamp(18rem, 31vw, 27rem);
+}
+
+.counter-scene-photo:first-child {
+  border-top: 0.7rem solid var(--counter-orange);
+}
+
+.counter-scene-photo:last-child {
+  margin-top: clamp(2.5rem, 5vw, 5rem);
+  border-top: 0.7rem solid var(--cream-yellow);
+}
+
 .counter-space {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.9fr);
@@ -719,46 +760,23 @@
 }
 
 .table-still-life {
-  display: grid;
-  grid-template-columns: minmax(0, 0.83fr) minmax(0, 1.17fr);
-  gap: 0.75rem;
-  align-items: end;
+  min-width: 0;
 }
 
-.table-cup {
-  min-height: clamp(22rem, 42vw, 34rem);
+.table-scene {
+  min-height: clamp(24rem, 47vw, 39rem);
   border-top: 0.7rem solid var(--counter-orange);
 }
 
-.food-placeholder {
-  display: flex;
-  min-height: clamp(18rem, 34vw, 28rem);
-  flex-direction: column;
-  justify-content: space-between;
-  padding: clamp(1rem, 2.5vw, 2rem);
-  background: var(--ink);
-  color: var(--paper);
+.table-scene > img {
+  object-position: 62% center;
 }
 
-.food-placeholder span {
-  color: var(--cream-yellow);
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-.food-placeholder strong {
-  font-size: clamp(1.55rem, 3vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -0.055em;
-  line-height: 1.08;
-}
-
-.food-placeholder p {
-  max-width: 18rem;
-  color: #c7c0b7;
-  font-size: 0.78rem;
+.table-scene-note {
+  max-width: 34rem;
+  margin-top: 0.85rem !important;
+  color: #5d554e;
+  font-size: 0.72rem;
   line-height: 1.65;
 }
 
@@ -1031,6 +1049,7 @@
   }
 
   .counter-hero,
+  .counter-scenes,
   .counter-space,
   .station-hero-inner,
   .station-steps,
@@ -1062,6 +1081,22 @@
     gap: 1.15rem;
   }
 
+  .counter-scenes {
+    gap: 1.5rem;
+  }
+
+  .counter-scenes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .counter-scene-photo {
+    min-height: 20rem;
+  }
+
+  .counter-scene-photo:last-child {
+    margin-top: 0;
+  }
+
   .counter-space-photo {
     min-height: 19rem;
   }
@@ -1088,16 +1123,8 @@
     min-height: 19rem;
   }
 
-  .table-still-life {
-    grid-template-columns: 0.82fr 1.18fr;
-  }
-
-  .table-cup {
-    min-height: 21rem;
-  }
-
-  .food-placeholder {
-    min-height: 17rem;
+  .table-scene {
+    min-height: 24rem;
   }
 
   .table-rhythm-list {
