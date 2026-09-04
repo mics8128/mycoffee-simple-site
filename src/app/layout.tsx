@@ -1,29 +1,49 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist } from "next/font/google"
 
 import "./globals.css"
 
-const geistSans = Geist({
+const geist = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
+const title = "買咖啡 MyCoffee｜中壢咖啡與輕食"
+const description = "買咖啡 MyCoffee 位於桃園市中壢區中央東路 52 號，提供咖啡、手沖、輕食與甜點。查看最新菜單、營業時間、訂位與導航資訊。"
 
 export const metadata: Metadata = {
-  title: "MyCoffee 買咖啡｜中壢精品咖啡與 AI 選豆",
-  description: "MyCoffee 買咖啡官網與 AI 選豆體驗。把專業選豆流程變成顧客看得懂、玩得起來的咖啡決策系統。",
   metadataBase: new URL("https://mycoffeetaiwan.com"),
+  title,
+  description,
+  applicationName: "買咖啡 MyCoffee",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "MyCoffee 買咖啡｜中壢精品咖啡與 AI 選豆",
-    description: "品牌官網＋手機優先 AI 選豆頁，讓顧客更快找到最適合的咖啡。",
-    url: "https://mycoffeetaiwan.com",
-    siteName: "MyCoffee 買咖啡",
+    title,
+    description,
+    url: "/",
+    siteName: "買咖啡 MyCoffee",
     locale: "zh_TW",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "買咖啡 MyCoffee 店內橘色吧台與中壢咖啡輕食品牌資訊",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/opengraph-image.jpg"],
   },
 }
 
@@ -33,8 +53,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh-Hant" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="zh-Hant" className={geist.variable}>
+      <body>{children}</body>
     </html>
   )
 }

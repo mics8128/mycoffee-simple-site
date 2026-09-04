@@ -83,10 +83,23 @@ Counter remains the recommended direction. Its real orange counter edge, red/yel
 - The authentic logo source was reduced from 1024px / 605KB to 256px / about 43KB without redrawing it.
 - The factual hero derivative is about 119KB; generated web derivatives remain about 106–116KB.
 
-## Deferred before production launch
+## Formal implementation review — 2026-09-05
 
-- Fresh-read hours, reservation behavior, menu URL, address, phone and operating policies.
-- Replace generated food and staff scenes with current factual product/action photography when available, or keep their provenance boundaries outside factual claims and structured data.
-- Remove the prototype switcher and `/prototype/brand` route after the chosen direction is implemented at `/`.
-- Remove or redirect `/bean-match` and delete its obsolete client bundle/data.
-- Complete canonical, Open Graph image, structured data, robots, sitemap, security/dependency and end-to-end release work.
+Formal route: `/`
+
+| 1280 × 800 | 768 × 1024 | 375 × 812 |
+| --- | --- | --- |
+| [`formal-desktop-1280x800.png`](screenshots/formal-desktop-1280x800.png) | [`formal-tablet-768x1024.png`](screenshots/formal-tablet-768x1024.png) | [`formal-mobile-375x812.png`](screenshots/formal-mobile-375x812.png) |
+
+- The formal page preserves the approved Counter hierarchy and removes the prototype note and switcher.
+- At 375 × 812, both primary actions are 48px high and finish at 521px; the factual hero begins at 550px and is visible in the first viewport.
+- Browser DOM audits at all three target sizes report `scrollWidth === innerWidth`, one `h1`, and no customer-visible `AI 選豆` or `PROTOTYPE` text.
+- Keyboard traversal exposes the skip link first, then the 44px brand link and 48px menu action. Each receives a 3px solid high-contrast focus outline.
+- `prefers-reduced-motion: reduce` changes transition duration to `0.01ms` and page scroll behavior to `auto`.
+- Native `ego-browser` screenshot capture timed out after its DOM audit succeeded. Final viewport images were captured from local Chrome headless and visually reviewed instead.
+- `bun run check` passes the production build and five HTTP integration tests. `bun audit` reports no known vulnerabilities.
+
+## Remaining release gate
+
+- Generated food and staff scenes remain secondary atmosphere only. Replace them with current factual product/action photography when available, or keep the manifest boundary and exclude them from structured data.
+- A separate explicit approval is still required before push, Vercel deployment, DNS, or public release.
