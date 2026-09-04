@@ -94,21 +94,6 @@
   object-fit: cover;
 }
 
-.image-status {
-  position: absolute;
-  right: 0.65rem;
-  bottom: 0.65rem;
-  z-index: 1;
-  max-width: calc(100% - 1.3rem);
-  padding: 0.3rem 0.45rem;
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 0.67rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1.25;
-}
-
 .section-label {
   color: var(--counter-orange);
 }
@@ -154,17 +139,6 @@
   font-size: 0.91rem;
   font-weight: 750;
   letter-spacing: 0.01em;
-}
-
-.hours .hours-note {
-  grid-column: 1 / -1;
-  padding-top: 0.12rem;
-}
-
-.hours .hours-note dd {
-  color: var(--muted);
-  font-size: 0.76rem;
-  font-weight: 600;
 }
 
 .visit-actions {
@@ -443,8 +417,7 @@
   color: var(--paper);
 }
 
-.counter-visit .hours dt,
-.counter-visit .hours .hours-note dd {
+.counter-visit .hours dt {
   color: #c7ced7;
 }
 
@@ -546,8 +519,7 @@
   color: var(--paper);
 }
 
-.station-copy .hours dt,
-.station-copy .hours .hours-note dd {
+.station-copy .hours dt {
   color: #c7ced7;
 }
 
@@ -605,8 +577,7 @@
   color: var(--ink);
 }
 
-.station-board .hours dt,
-.station-board .hours .hours-note dd {
+.station-board .hours dt {
   color: var(--muted);
 }
 

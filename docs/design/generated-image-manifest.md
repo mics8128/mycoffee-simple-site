@@ -2,7 +2,7 @@
 
 Date: 2026-09-04
 
-This manifest separates factual photographs from prototype-only generated imagery. Generated assets must keep a visible `品牌情境圖` label wherever they appear.
+This manifest separates factual photographs from prototype-only generated imagery. The prototype UI does not overlay image labels, so this internal record is the source of truth for asset provenance and use limits.
 
 | Public asset | Source reference | Classification | Approved use |
 | --- | --- | --- | --- |
@@ -19,6 +19,6 @@ This manifest separates factual photographs from prototype-only generated imager
 
 - Do not use these assets to support menu, price, inventory, equipment, seating-capacity, accessibility, or staffing claims.
 - Do not put them in structured data as factual store or product photos.
-- Do not remove their visible prototype disclosure.
+- Keep generated-scene context in surrounding prototype copy where it is relevant; do not describe these assets as current documentary photography.
 - Replace product and staff scenes with current real photography before a final factual launch whenever possible.
 - Keep raw source photography local. Only reviewed, compressed derivatives belong in `public/`.

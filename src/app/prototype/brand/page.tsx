@@ -88,16 +88,8 @@ function Hours() {
         <dt>週末</dt>
         <dd>12:00–18:00</dd>
       </div>
-      <div className="hours-note">
-        <dt className="sr-only">提醒</dt>
-        <dd>來店前請以現場最新公告為準</dd>
-      </div>
     </dl>
   )
-}
-
-function ImageStatus({ children = "現有實景" }: { children?: React.ReactNode }) {
-  return <span className="image-status">{children}</span>
 }
 
 function VisitActions({ compact = false }: { compact?: boolean }) {
@@ -153,7 +145,6 @@ function CounterDirection() {
             preload
             sizes="(max-width: 720px) 100vw, 56vw"
           />
-          <ImageStatus>品牌情境圖 · 由真實吧台照片延伸</ImageStatus>
         </figure>
       </section>
 
@@ -181,11 +172,9 @@ function CounterDirection() {
         <div className="counter-scenes-grid">
           <figure className="counter-scene-photo image-frame">
             <Image src="/brand/barista-brand-scene.webp" alt="吧台沖煮咖啡的品牌情境" fill sizes="(max-width: 720px) 100vw, 36vw" />
-            <ImageStatus>品牌情境圖 · 沖煮動作</ImageStatus>
           </figure>
           <figure className="counter-scene-photo image-frame">
             <Image src="/brand/table-brand-scene.webp" alt="咖啡、巴斯克與佛卡夏的品牌情境" fill sizes="(max-width: 720px) 100vw, 36vw" />
-            <ImageStatus>品牌情境圖 · 餐點構圖</ImageStatus>
           </figure>
         </div>
       </section>
@@ -193,7 +182,6 @@ function CounterDirection() {
       <section className="counter-space page-shell" aria-labelledby="counter-space-title">
         <figure className="counter-space-photo image-frame">
           <Image src="/images/store-01.jpg" alt="買咖啡店內的座位與動線" fill sizes="(max-width: 720px) 100vw, 45vw" />
-          <ImageStatus>現有實景 · 店內座位</ImageStatus>
         </figure>
         <div className="counter-space-copy">
           <p className="section-label">THE ROOM</p>
@@ -241,7 +229,6 @@ function StationDirection() {
           </div>
           <figure className="station-hero-image image-frame">
             <Image src="/images/store-01.jpg" alt="買咖啡從座位區望向吧台的店內景象" fill preload sizes="(max-width: 720px) 100vw, 50vw" />
-            <ImageStatus>現有實景 · 店內動線</ImageStatus>
           </figure>
         </div>
       </section>
@@ -279,7 +266,6 @@ function StationDirection() {
       <section className="station-room page-shell" aria-labelledby="station-room-title">
         <figure className="station-room-photo image-frame">
           <Image src="/brand/seating-ai-retouched.webp" alt="買咖啡座位區的整理後品牌情境" fill sizes="(max-width: 720px) 100vw, 50vw" />
-          <ImageStatus>品牌情境圖 · 由座位實景延伸</ImageStatus>
         </figure>
         <div>
           <p className="section-label">A SHORT STOP, OR A LONGER ONE</p>
@@ -313,7 +299,6 @@ function TableDirection() {
         <div className="table-still-life">
           <figure className="table-scene image-frame">
             <Image src="/brand/table-brand-scene.webp" alt="咖啡、巴斯克與佛卡夏的品牌情境" fill preload sizes="(max-width: 720px) 100vw, 52vw" />
-            <ImageStatus>品牌情境圖 · 由店內實景延伸</ImageStatus>
           </figure>
           <p className="table-scene-note">原型用生成構圖；實際品項、外觀與供應以最新菜單及現場為準。</p>
         </div>
@@ -355,7 +340,6 @@ function TableDirection() {
         </div>
         <figure className="table-room-photo image-frame">
           <Image src="/images/store-03.jpg" alt="買咖啡店內座位實景" fill sizes="(max-width: 720px) 100vw, 50vw" />
-          <ImageStatus>現有實景 · 店內座位</ImageStatus>
         </figure>
       </section>
 
@@ -383,7 +367,7 @@ function BrandFooter() {
           <a href="https://www.instagram.com/mycoffeetaiwan/" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://www.facebook.com/mycoffeetaiwan/" target="_blank" rel="noopener noreferrer">Facebook</a>
         </nav>
-        <p className="prototype-footer-source">資料基準：2026.08.09<br />正式發布前重新確認</p>
+        <p className="prototype-footer-source">資料基準：2026.08.09</p>
       </div>
     </footer>
   )
