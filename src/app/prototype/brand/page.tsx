@@ -60,14 +60,14 @@ function BrandMark() {
     <div className="brand-mark-lockup">
       <Image
         src="/brand/mycoffee-mark.png"
-        alt="買咖啡 MyCoffee"
+        alt=""
         width={56}
         height={56}
         className="brand-mark"
       />
       <div>
         <p className="brand-name">買咖啡 MyCoffee</p>
-        <p className="brand-kind">咖啡輕食 · 中壢</p>
+        <p className="brand-kind">中壢咖啡與輕食</p>
       </div>
     </div>
   )
@@ -81,8 +81,8 @@ function Hours() {
   return (
     <dl className="hours">
       <div>
-        <dt>一般時段</dt>
-        <dd>平日 09:00–18:00</dd>
+        <dt>平日</dt>
+        <dd>09:00–18:00</dd>
       </div>
       <div>
         <dt>週末</dt>
@@ -96,10 +96,10 @@ function VisitActions({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`visit-actions${compact ? " visit-actions--compact" : ""}`}>
       <a className="action action--dark" href={menuUrl} target="_blank" rel="noreferrer">
-        查看最新菜單 <span aria-hidden="true">↗</span>
+        查看最新菜單
       </a>
       <a className="action action--outline" href={mapsUrl} target="_blank" rel="noreferrer">
-        導航到店 <span aria-hidden="true">↗</span>
+        導航到店
       </a>
     </div>
   )
@@ -128,10 +128,10 @@ function CounterDirection() {
 
       <section className="counter-hero page-shell" aria-labelledby="counter-title">
         <div className="counter-hero-copy">
-          <p className="counter-kicker">咖啡 · 輕食 · 可以坐一下的日常</p>
-          <h1 id="counter-title">今天想喝杯咖啡，<br />就到買咖啡坐坐。</h1>
+          <p className="counter-kicker">咖啡、輕食，還有坐一下的時間</p>
+          <h1 id="counter-title">想喝杯咖啡，<br />就到買咖啡坐坐。</h1>
           <p className="counter-intro">
-            在中壢中央東路，留一杯日常咖啡和一份剛好的輕食時間。第一次來，也能先看菜單、確認位置，再決定今天的腳步。
+            買咖啡在中壢中央東路。想喝杯咖啡、吃點輕食，先看目前菜單，再決定要不要過來坐坐。
           </p>
           <Hours />
           <VisitActions />
@@ -139,8 +139,8 @@ function CounterDirection() {
 
         <figure className="counter-hero-image image-frame">
           <Image
-            src="/brand/counter-brand-scene-cropped.webp"
-            alt="買咖啡橘色吧台的品牌情境影像"
+            src="/brand/counter-real-aisle.webp"
+            alt="買咖啡店內橘色吧台、座位與入口動線"
             fill
             preload
             sizes="(max-width: 720px) 100vw, 56vw"
@@ -154,27 +154,22 @@ function CounterDirection() {
 
       <section className="counter-everyday page-shell" aria-labelledby="everyday-title">
         <div>
-          <p className="section-label">EVERYDAY, AT YOUR PACE</p>
+          <p className="section-label">日常咖啡與輕食</p>
           <h2 id="everyday-title">不急著選，也不必懂很多。</h2>
         </div>
         <p>
-          想喝日常咖啡、看看當日手沖，或找一份輕食和甜點搭配，都從目前菜單開始。品項與供應狀況，以菜單與現場為準。
+          美式、拿鐵、當日手沖，再配一份佛卡夏或甜點。目前有哪些選擇，直接看最新菜單。
         </p>
-        <a className="text-link" href={menuUrl} target="_blank" rel="noreferrer">查看最新菜單 <span aria-hidden="true">→</span></a>
+        <a className="text-link" href={menuUrl} target="_blank" rel="noreferrer">查看最新菜單</a>
       </section>
 
-      <section className="counter-scenes page-shell" aria-labelledby="counter-scenes-title">
-        <div className="counter-scenes-copy">
-          <p className="section-label">COFFEE &amp; SOMETHING LIGHT</p>
-          <h2 id="counter-scenes-title">從一杯咖啡，到一份剛好的搭配。</h2>
-          <p>以下為實景延伸的原型情境圖，用來確認未來拍攝構圖；實際品項與供應以最新菜單和現場為準。</p>
-        </div>
+      <section className="counter-scenes page-shell" aria-label="咖啡與輕食情境">
         <div className="counter-scenes-grid">
           <figure className="counter-scene-photo image-frame">
-            <Image src="/brand/barista-brand-scene.webp" alt="吧台沖煮咖啡的品牌情境" fill sizes="(max-width: 720px) 100vw, 36vw" />
+            <Image src="/brand/barista-brand-scene.webp" alt="吧台沖煮咖啡的品牌情境" fill sizes="(max-width: 720px) 100vw, 48vw" />
           </figure>
           <figure className="counter-scene-photo image-frame">
-            <Image src="/brand/table-brand-scene.webp" alt="咖啡、巴斯克與佛卡夏的品牌情境" fill sizes="(max-width: 720px) 100vw, 36vw" />
+            <Image src="/brand/table-brand-scene.webp" alt="咖啡、巴斯克與佛卡夏的品牌情境" fill sizes="(max-width: 720px) 100vw, 48vw" />
           </figure>
         </div>
       </section>
@@ -184,10 +179,10 @@ function CounterDirection() {
           <Image src="/images/store-01.jpg" alt="買咖啡店內的座位與動線" fill sizes="(max-width: 720px) 100vw, 45vw" />
         </figure>
         <div className="counter-space-copy">
-          <p className="section-label">THE ROOM</p>
+          <p className="section-label">店內空間</p>
           <h2 id="counter-space-title">一個人停一下，或和朋友坐一會。</h2>
           <p>
-            空間、座位和來店條件會隨現場狀況調整；若在意座位、插座或停留規則，請以現場公告為準。
+            店內有單人和多人座位。想先確認訂位、插座或其他來店細節，可以直接打電話詢問。
           </p>
           <VisitDetails />
         </div>
@@ -195,8 +190,8 @@ function CounterDirection() {
 
       <section className="counter-visit page-shell" aria-labelledby="counter-visit-title">
         <div>
-          <p className="section-label">COME BY</p>
-          <h2 id="counter-visit-title">把地址和時間記下來。</h2>
+          <p className="section-label">來店資訊</p>
+          <h2 id="counter-visit-title">中央東路 52 號，來喝杯咖啡。</h2>
         </div>
         <div>
           <Hours />
@@ -216,13 +211,13 @@ function StationDirection() {
       </header>
 
       <section className="station-hero" aria-labelledby="station-title">
-        <div className="station-route-tag">ZHONGLI · CENTRAL EAST ROAD</div>
+        <div className="station-route-tag">中壢中央東路</div>
         <div className="station-hero-inner page-shell">
           <div className="station-copy">
             <p className="station-kicker">一間在日常路線上的咖啡店</p>
             <h1 id="station-title">往下一站之前，<br />先留一段時間給自己。</h1>
             <p>
-              買咖啡在中壢中央東路。走到店前，先把今天是否適合來坐坐的資訊看清楚：時間、位置，還有現在的菜單。
+              買咖啡在中壢中央東路。從目前菜單、營業時間到導航，都先整理在這裡；想坐一下或外帶一杯，再照自己的步調出發。
             </p>
             <Hours />
             <VisitActions />
@@ -235,7 +230,7 @@ function StationDirection() {
 
       <section className="station-board page-shell" aria-labelledby="station-board-title">
         <div className="station-board-title">
-          <p className="section-label">TODAY&apos;S STOP</p>
+          <p className="section-label">營業時間與位置</p>
           <h2 id="station-board-title">先確認，再出發。</h2>
         </div>
         <Hours />
@@ -244,17 +239,17 @@ function StationDirection() {
 
       <section className="station-steps page-shell" aria-labelledby="station-steps-title">
         <div>
-          <p className="section-label">ON THE WAY</p>
+          <p className="section-label">到店之前</p>
           <h2 id="station-steps-title">把來店需要的資訊放在前面。</h2>
         </div>
         <ol>
           <li>
             <span>01</span>
-            <div><h3>看現在的菜單</h3><p>品項、價格與供應資訊，請以公開菜單為準。</p><a href={menuUrl} target="_blank" rel="noreferrer">查看最新菜單 ↗</a></div>
+            <div><h3>看現在的菜單</h3><p>先看看目前菜單裡的咖啡和輕食。</p><a href={menuUrl} target="_blank" rel="noreferrer">查看最新菜單</a></div>
           </li>
           <li>
             <span>02</span>
-            <div><h3>打開導航</h3><p>地址：桃園市中壢區中央東路 52 號。</p><a href={mapsUrl} target="_blank" rel="noreferrer">導航到店 ↗</a></div>
+            <div><h3>打開導航</h3><p>地址：桃園市中壢區中央東路 52 號。</p><a href={mapsUrl} target="_blank" rel="noreferrer">導航到店</a></div>
           </li>
           <li>
             <span>03</span>
@@ -268,10 +263,10 @@ function StationDirection() {
           <Image src="/brand/seating-ai-retouched.webp" alt="買咖啡座位區的整理後品牌情境" fill sizes="(max-width: 720px) 100vw, 50vw" />
         </figure>
         <div>
-          <p className="section-label">A SHORT STOP, OR A LONGER ONE</p>
+          <p className="section-label">坐下來歇一會</p>
           <h2 id="station-room-title">喝杯咖啡，吃點輕食，再回到自己的路線。</h2>
           <p>空間與供應狀況每天不同；來之前想確認的事，打電話問最直接。</p>
-          <a className="text-link" href={reserveUrl} target="_blank" rel="noreferrer">訂位 ↗</a>
+          <a className="text-link" href={reserveUrl} target="_blank" rel="noreferrer">訂位</a>
         </div>
       </section>
     </div>
@@ -288,7 +283,7 @@ function TableDirection() {
 
       <section className="table-hero page-shell" aria-labelledby="table-title">
         <div className="table-hero-copy">
-          <p className="table-kicker">COFFEE, SOMETHING LIGHT, A LITTLE TIME</p>
+          <p className="table-kicker">咖啡、輕食，留一點時間給自己</p>
           <h1 id="table-title">一杯咖啡，<br />配一份剛好的時間。</h1>
           <p>
             想坐下喝杯日常咖啡，也想吃一點輕食或甜點。買咖啡把這些平常的小選擇，留在同一張桌上。
@@ -300,38 +295,34 @@ function TableDirection() {
           <figure className="table-scene image-frame">
             <Image src="/brand/table-brand-scene.webp" alt="咖啡、巴斯克與佛卡夏的品牌情境" fill preload sizes="(max-width: 720px) 100vw, 52vw" />
           </figure>
-          <p className="table-scene-note">原型用生成構圖；實際品項、外觀與供應以最新菜單及現場為準。</p>
         </div>
       </section>
 
       <section className="table-rhythm page-shell" aria-labelledby="table-rhythm-title">
         <div>
-          <p className="section-label">AT THE TABLE</p>
+          <p className="section-label">桌上的選擇</p>
           <h2 id="table-rhythm-title">從當日菜單，找適合今天的一桌。</h2>
         </div>
         <div className="table-rhythm-list">
           <article>
-            <span>01</span>
             <h3>日常咖啡</h3>
             <p>想喝什麼，先看現在的選擇。</p>
           </article>
           <article>
-            <span>02</span>
             <h3>一點輕食</h3>
             <p>需要餐食時，以當日菜單為準。</p>
           </article>
           <article>
-            <span>03</span>
             <h3>慢慢坐著</h3>
             <p>座位與來店規則，請看現場公告。</p>
           </article>
         </div>
-        <a className="text-link" href={menuUrl} target="_blank" rel="noreferrer">查看最新菜單 <span aria-hidden="true">→</span></a>
+        <a className="text-link" href={menuUrl} target="_blank" rel="noreferrer">查看最新菜單</a>
       </section>
 
       <section className="table-room page-shell" aria-labelledby="table-room-title">
         <div className="table-room-copy">
-          <p className="section-label">THE PLACE AROUND THE TABLE</p>
+          <p className="section-label">桌邊空間</p>
           <h2 id="table-room-title">咖啡、輕食，和一個能放慢一點的空間。</h2>
           <p>
             這裡適合把一段空檔留給自己或身邊的人。若想確認座位、訂位或現場條件，請直接聯絡店家。
@@ -345,7 +336,7 @@ function TableDirection() {
 
       <section className="table-last-call page-shell" aria-labelledby="table-last-call-title">
         <div>
-          <p className="section-label">VISIT MYCOFFEE</p>
+          <p className="section-label">來買咖啡</p>
           <h2 id="table-last-call-title">中央東路 52 號，等你把今天坐下來。</h2>
         </div>
         <VisitActions compact />
@@ -367,7 +358,7 @@ function BrandFooter() {
           <a href="https://www.instagram.com/mycoffeetaiwan/" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://www.facebook.com/mycoffeetaiwan/" target="_blank" rel="noopener noreferrer">Facebook</a>
         </nav>
-        <p className="prototype-footer-source">資料基準：2026.08.09</p>
+        <p className="prototype-footer-source">營業資料更新：2026.08.09</p>
       </div>
     </footer>
   )
