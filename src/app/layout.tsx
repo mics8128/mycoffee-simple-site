@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 
+import { site } from "@/config/site"
+
 import "./globals.css"
 
 const geist = Geist({
@@ -8,14 +10,11 @@ const geist = Geist({
   subsets: ["latin"],
 })
 
-const title = "買咖啡 MyCoffee｜中壢咖啡與輕食"
-const description = "買咖啡 MyCoffee 位於桃園市中壢區中央東路 52 號，提供咖啡、手沖、輕食與甜點。查看最新菜單、營業時間、訂位與導航資訊。"
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mycoffeetaiwan.com"),
-  title,
-  description,
-  applicationName: "買咖啡 MyCoffee",
+  metadataBase: new URL(site.origin),
+  title: site.title,
+  description: site.description,
+  applicationName: site.brandName,
   alternates: {
     canonical: "/",
   },
@@ -24,10 +23,10 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title,
-    description,
+    title: site.title,
+    description: site.description,
     url: "/",
-    siteName: "買咖啡 MyCoffee",
+    siteName: site.brandName,
     locale: "zh_TW",
     type: "website",
     images: [
@@ -41,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
-    description,
+    title: site.title,
+    description: site.description,
     images: ["/opengraph-image.jpg"],
   },
 }
@@ -53,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh-Hant" className={geist.variable}>
+    <html lang="zh-Hant" className={geist.variable} data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   )

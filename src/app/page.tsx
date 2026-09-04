@@ -1,52 +1,36 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import "./home.css"
+import { site } from "@/config/site"
 
-const site = {
-  name: "買咖啡 MyCoffee",
-  url: "https://mycoffeetaiwan.com/",
-  telephone: "+886-3-422-6209",
-  displayPhone: "03 422 6209",
-  address: "桃園市中壢區中央東路 52 號",
-  hours: {
-    weekdays: "09:00–18:00",
-    weekends: "12:00–18:00",
-  },
-  links: {
-    menu: "https://shop.ichefpos.com/store/139TPDhT/ordering",
-    reserve: "https://shop.ichefpos.com/store/139TPDhT/reserve",
-    maps: "https://www.google.com/maps/search/?api=1&query=%E6%A1%83%E5%9C%92%E5%B8%82%E4%B8%AD%E5%A3%A2%E5%8D%80%E4%B8%AD%E5%A4%AE%E6%9D%B1%E8%B7%AF52%E8%99%9F",
-    instagram: "https://www.instagram.com/mycoffeetaiwan/",
-    facebook: "https://www.facebook.com/mycoffeetaiwan/",
-  },
-} as const
+import "./home.css"
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "CafeOrCoffeeShop",
-  name: site.name,
-  url: site.url,
+  name: site.businessName,
+  url: site.origin,
   telephone: site.telephone,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "中央東路 52 號",
-    addressLocality: "中壢區",
-    addressRegion: "桃園市",
-    addressCountry: "TW",
+    streetAddress: site.address.street,
+    addressLocality: site.address.locality,
+    addressRegion: site.address.region,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.country,
   },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "18:00",
+      dayOfWeek: site.hours.weekdays.days,
+      opens: site.hours.weekdays.opens,
+      closes: site.hours.weekdays.closes,
     },
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday", "Sunday"],
-      opens: "12:00",
-      closes: "18:00",
+      dayOfWeek: site.hours.weekends.days,
+      opens: site.hours.weekends.opens,
+      closes: site.hours.weekends.closes,
     },
   ],
   menu: site.links.menu,
@@ -67,7 +51,7 @@ export default function Home() {
             className="brand-mark"
           />
           <span>
-            <strong>{site.name}</strong>
+            <strong>{site.brandName}</strong>
             <small>咖啡輕食</small>
           </span>
         </Link>
@@ -172,7 +156,7 @@ export default function Home() {
         <div className="site-footer-inner page-shell">
           <div>
             <p className="footer-name">買咖啡 MyCoffee｜咖啡輕食</p>
-            <address>{site.address}</address>
+            <address>{site.address.display}</address>
           </div>
           <nav aria-label="聯絡與社群">
             <a href={`tel:${site.telephone}`}>{site.displayPhone}</a>
@@ -195,12 +179,12 @@ function Hours() {
   return (
     <dl className="hours" aria-label="營業時間">
       <div>
-        <dt>平日</dt>
-        <dd>{site.hours.weekdays}</dd>
+        <dt>{site.hours.weekdays.label}</dt>
+        <dd>{site.hours.weekdays.display}</dd>
       </div>
       <div>
-        <dt>週末</dt>
-        <dd>{site.hours.weekends}</dd>
+        <dt>{site.hours.weekends.label}</dt>
+        <dd>{site.hours.weekends.display}</dd>
       </div>
     </dl>
   )
@@ -218,7 +202,7 @@ function VisitActions({ compact = false }: { compact?: boolean }) {
 function VisitDetails() {
   return (
     <address className="visit-details">
-      <p>{site.address}</p>
+      <p>{site.address.display}</p>
       <div>
         <a href={`tel:${site.telephone}`}>{site.displayPhone}</a>
         <ExternalLink href={site.links.reserve}>訂位</ExternalLink>

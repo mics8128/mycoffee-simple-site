@@ -98,6 +98,8 @@ Formal route: `/`
 - `prefers-reduced-motion: reduce` changes transition duration to `0.01ms` and page scroll behavior to `auto`.
 - Native `ego-browser` screenshot capture timed out after its DOM audit succeeded. Final viewport images were captured from local Chrome headless and visually reviewed instead.
 - `bun run check` passes the production build and five HTTP integration tests. `bun audit` reports no known vulnerabilities.
+- Independent Standards and Spec reviews found two bounded test gaps. The suite now allocates a free port, fails on early server exit, confirms the removed prototype returns 404, and checks every canonical menu, Maps, reservation, Instagram and Facebook destination.
+- Operational facts now live in `src/config/site.ts`, so visible content, JSON-LD, metadata, robots and sitemap share one source.
 
 ## Remaining release gate
 

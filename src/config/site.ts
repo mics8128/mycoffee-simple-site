@@ -1,0 +1,40 @@
+export const site = {
+  brandName: "買咖啡 MyCoffee",
+  businessName: "買咖啡 MyCoffee | 咖啡輕食",
+  title: "買咖啡 MyCoffee｜中壢咖啡與輕食",
+  description: "買咖啡 MyCoffee 位於桃園市中壢區中央東路 52 號，提供咖啡、手沖、輕食與甜點。查看最新菜單、營業時間、訂位與導航資訊。",
+  origin: "https://mycoffeetaiwan.com",
+  telephone: "+886-3-422-6209",
+  displayPhone: "03 422 6209",
+  address: {
+    display: "桃園市中壢區中央東路 52 號",
+    street: "中央東路 52 號",
+    locality: "中壢區",
+    region: "桃園市",
+    postalCode: "320",
+    country: "TW",
+  },
+  hours: {
+    weekdays: {
+      label: "平日",
+      display: "09:00–18:00",
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+    weekends: {
+      label: "週末",
+      display: "12:00–18:00",
+      days: ["Saturday", "Sunday"],
+      opens: "12:00",
+      closes: "18:00",
+    },
+  },
+  links: {
+    menu: "https://shop.ichefpos.com/store/139TPDhT/ordering",
+    reserve: "https://shop.ichefpos.com/store/139TPDhT/reserve",
+    maps: "https://www.google.com/maps/search/?api=1&query=%E6%A1%83%E5%9C%92%E5%B8%82%E4%B8%AD%E5%A3%A2%E5%8D%80%E4%B8%AD%E5%A4%AE%E6%9D%B1%E8%B7%AF52%E8%99%9F",
+    instagram: "https://www.instagram.com/mycoffeetaiwan/",
+    facebook: "https://www.facebook.com/mycoffeetaiwan/",
+  },
+} as const
