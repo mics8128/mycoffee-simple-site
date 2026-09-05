@@ -1,0 +1,12 @@
+# Local-only source photography and build output
+image-from-real/
+.next/
+.vercel/
+
+# Review and development artifacts not needed at runtime
+.design/
+docs/
+tests/
+AGENTS.md
+CONTEXT.md
+README.md
