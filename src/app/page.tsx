@@ -68,10 +68,16 @@ export default function Home() {
             <p className="hero-kicker">咖啡、輕食，還有坐一下的時間</p>
             <h1 id="hero-title">想喝杯咖啡，<br />就到買咖啡坐坐。</h1>
             <p className="hero-intro">
-              買咖啡在中壢中央東路。想喝杯咖啡、吃點輕食，先看目前菜單，再決定要不要過來坐坐。
+              買咖啡位於桃園市中壢區中央東路 52 號。想喝杯咖啡、吃點輕食，先看目前菜單，再決定要不要過來坐坐。
             </p>
-            <Hours />
+            <div className="hero-location-summary">
+              <p className="hero-address">{site.address.display}</p>
+              <Hours />
+            </div>
             <VisitActions />
+            <p className="hero-service-note">
+              店內提供內用與外帶；外送資訊請洽門市。iCHEF 公開頁供瀏覽菜單；訂購／付款依門市或該官方頁公告為準。
+            </p>
           </div>
 
           <figure className="hero-image image-frame">
@@ -94,9 +100,14 @@ export default function Home() {
             <p className="section-label">日常咖啡與輕食</p>
             <h2 id="everyday-title">不急著選，也不必懂很多。</h2>
           </div>
-          <p>
-            日常咖啡、輕食和甜點的選擇，請以當日菜單為準。先看看現在有什麼，再決定今天想坐多久。
-          </p>
+          <div>
+            <p>
+              日常咖啡、輕食和甜點的選擇，請以當日菜單為準。先看看現在有什麼，再決定今天想坐多久。
+            </p>
+            <p className="menu-platform-note">
+              iCHEF 公開頁供瀏覽菜單；訂購／付款依門市或該官方頁公告為準。
+            </p>
+          </div>
           <ExternalLink className="text-link" href={site.links.menu}>查看最新菜單</ExternalLink>
         </section>
 
@@ -144,6 +155,9 @@ export default function Home() {
           <div>
             <p className="section-label">來店資訊</p>
             <h2 id="visit-title">中央東路 52 號，來喝杯咖啡。</h2>
+            <p className="visit-service-note">
+              歡迎內用與到店外帶；外送資訊請洽門市（<a href={`tel:${site.telephone}`}>{site.displayPhone}</a>）。
+            </p>
           </div>
           <div className="visit-actions-panel">
             <Hours />

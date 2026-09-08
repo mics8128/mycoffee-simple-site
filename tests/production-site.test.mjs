@@ -118,6 +118,7 @@ test("the homepage exposes the approved visit-decision surface", async () => {
   assert.match(html, /09:00[–-]18:00/)
   assert.match(html, /週末/)
   assert.match(html, /12:00[–-]18:00/)
+  assert.match(html, /桃園市中壢區中央東路 52 號/)
   assert.match(html, />查看最新菜單</)
   assert.match(html, />導航到店</)
   assert(hrefs.has(expectedLinks.menu))
@@ -127,6 +128,22 @@ test("the homepage exposes the approved visit-decision surface", async () => {
   assert(hrefs.has(expectedLinks.facebook))
   assert(hrefs.has("tel:+886-3-422-6209"))
   assert.doesNotMatch(html, /AI 選豆|30 秒開始|\/bean-match/)
+})
+
+test("the homepage integrates verified dine-in, takeout, and delivery clarity", async () => {
+  const response = await fetch(origin)
+  const html = await response.text()
+
+  // Preserved nav items
+  assert.match(html, /<nav class="site-nav" aria-label="頁面導覽"><a href="#coffee">咖啡與輕食<\/a><a href="#space">店內空間<\/a><a href="#visit">來店資訊<\/a><\/nav>/)
+
+  // Integrated service context
+  assert.match(html, /店內提供內用與外帶；外送資訊請洽門市/)
+  assert.match(html, /歡迎內用與到店外帶；外送資訊請洽門市/)
+
+  // Nuanced menu platform note
+  assert.match(html, /iCHEF 公開頁供瀏覽菜單；訂購／付款依門市或該官方頁公告為準/)
+  assert.doesNotMatch(html, /不支援直接線上付款|不支援下單付款/)
 })
 
 test("the homepage exposes canonical search and verified cafe data", async () => {

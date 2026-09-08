@@ -620,3 +620,45 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+
+.hero-location-summary {
+  margin-top: 1.5rem;
+}
+
+.hero-address {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.hero .hours {
+  margin-top: 0.5rem;
+}
+
+.hero-service-note {
+  margin-top: 0.85rem !important;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.menu-platform-note {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.visit-service-note {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  color: #c7ced7;
+  line-height: 1.6;
+}
+
+.visit-service-note a {
+  color: var(--cream-yellow);
+  text-decoration: underline;
+}
