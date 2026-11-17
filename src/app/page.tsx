@@ -1,66 +1,39 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { site } from "@/config/site"
+import { ExternalLink, JsonLd, SiteFooter, SiteHeader } from "@/components/site-chrome"
+import { cafeSchema, faqs, site } from "@/config/site"
 
 import "./home.css"
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "CafeOrCoffeeShop",
-  name: site.businessName,
-  url: site.origin,
-  telephone: site.telephone,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: site.address.street,
-    addressLocality: site.address.locality,
-    addressRegion: site.address.region,
-    postalCode: site.address.postalCode,
-    addressCountry: site.address.country,
-  },
-  openingHoursSpecification: [
+  "@graph": [
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: site.hours.weekdays.days,
-      opens: site.hours.weekdays.opens,
-      closes: site.hours.weekdays.closes,
+      "@type": "WebSite",
+      "@id": `${site.origin}/#website`,
+      url: site.origin,
+      name: site.brandName,
+      alternateName: site.alternateNames,
+      inLanguage: "zh-TW",
+      publisher: { "@id": `${site.origin}/#cafe` },
     },
+    { ...cafeSchema, "@context": undefined },
     {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: site.hours.weekends.days,
-      opens: site.hours.weekends.opens,
-      closes: site.hours.weekends.closes,
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     },
   ],
-  menu: site.links.menu,
-  sameAs: [site.links.instagram, site.links.facebook],
 }
 
 export default function Home() {
   return (
     <div className="counter-home">
-      <a className="skip-link" href="#main-content">跳至主要內容</a>
-      <header className="site-header page-shell">
-        <Link className="brand-lockup" href="/" aria-label="買咖啡 MyCoffee 首頁">
-          <Image
-            src="/brand/mycoffee-mark.png"
-            alt=""
-            width={56}
-            height={56}
-            className="brand-mark"
-          />
-          <span>
-            <strong>{site.brandName}</strong>
-            <small>咖啡輕食</small>
-          </span>
-        </Link>
-        <nav className="site-nav" aria-label="頁面導覽">
-          <a href="#coffee">咖啡與輕食</a>
-          <a href="#space">店內空間</a>
-          <a href="#visit">來店資訊</a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <main id="main-content">
         <section className="hero page-shell" aria-labelledby="hero-title">
@@ -68,7 +41,7 @@ export default function Home() {
             <p className="hero-kicker">咖啡、輕食，還有坐一下的時間</p>
             <h1 id="hero-title">想喝杯咖啡，<br />就到買咖啡坐坐。</h1>
             <p className="hero-intro">
-              買咖啡位於桃園市中壢區中央東路 52 號。想喝杯咖啡、吃點輕食，先看目前菜單，再決定要不要過來坐坐。
+              買咖啡位於桃園市中壢區中央東路 52 號。這裡不用對著手機掃碼，店員會直接幫你點餐、陪你聊兩句；座位寬敞，也有 15 人包廂可以聚會、開會。
             </p>
             <div className="hero-location-summary">
               <p className="hero-address">{site.address.display}</p>
@@ -95,6 +68,26 @@ export default function Home() {
           <span /><span /><span /><span />
         </div>
 
+        <section id="story" className="space page-shell" aria-labelledby="story-title">
+          <figure className="space-image image-frame">
+            <Image
+              src="/story/retro-hazelnut-scene.webp"
+              alt="復古咖啡館桌上的一杯榛果拿鐵（AI 生成情境示意）"
+              fill
+              sizes="(max-width: 720px) 100vw, 45vw"
+            />
+            <figcaption className="scene-note">AI 生成情境示意，非店內實景</figcaption>
+          </figure>
+          <div className="space-copy">
+            <p className="section-label">品牌故事</p>
+            <h2 id="story-title">那杯榛果香，<br />換下一代來煮。</h2>
+            <p>
+              從迪麥便利商店到法市咖啡，二十年前，我們把當年風靡一時的榛果咖啡帶進台灣。休息了一段時間後，兒子接手，在中壢重新開了買咖啡——咖啡變得更講究了，但我們想留下的，還是那份面對面的人情味。
+            </p>
+            <Link className="text-link" href="/story">閱讀完整品牌故事</Link>
+          </div>
+        </section>
+
         <section id="coffee" className="everyday page-shell" aria-labelledby="everyday-title">
           <div>
             <p className="section-label">日常咖啡與輕食</p>
@@ -102,7 +95,7 @@ export default function Home() {
           </div>
           <div>
             <p>
-              日常咖啡、輕食和甜點的選擇，請以當日菜單為準。先看看現在有什麼，再決定今天想坐多久。
+              現在的咖啡有手沖、義式，各種沖煮方式。不知道怎麼選沒關係，跟店員聊聊你喜歡的味道就好。咖啡、輕食和甜點的選擇，請以當日菜單為準。
             </p>
             <p className="menu-platform-note">
               iCHEF 公開頁供瀏覽菜單；訂購／付款依門市或該官方頁公告為準。
@@ -142,12 +135,25 @@ export default function Home() {
             />
           </figure>
           <div className="space-copy">
-            <p className="section-label">店內空間</p>
-            <h2 id="space-title">一個人停一下，或和朋友坐一會。</h2>
+            <p className="section-label">空間與包廂</p>
+            <h2 id="space-title">座位寬一點，聊天久一點。</h2>
             <p>
-              店內有單人和多人座位。想先確認訂位或其他來店細節，可以直接打電話詢問。
+              一個人停一下，或和朋友坐一會，座位都留得大而寬敞。人多的時候，店內有一間可容納 15 人的包廂，提供電視，可以聚會、看影片，也能當會議室使用。包廂與訂位細節，歡迎來電或用 LINE 詢問。
             </p>
             <VisitDetails />
+          </div>
+        </section>
+
+        <section id="faq" className="faq page-shell" aria-labelledby="faq-title">
+          <p className="section-label">常見問題</p>
+          <h2 id="faq-title">來之前，你可能想知道。</h2>
+          <div className="faq-list">
+            {faqs.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
           </div>
         </section>
 
@@ -166,25 +172,8 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="site-footer-inner page-shell">
-          <div>
-            <p className="footer-name">買咖啡 MyCoffee｜咖啡輕食</p>
-            <address>{site.address.display}</address>
-          </div>
-          <nav aria-label="聯絡與社群">
-            <a href={`tel:${site.telephone}`}>{site.displayPhone}</a>
-            <ExternalLink href={site.links.reserve}>訂位</ExternalLink>
-            <ExternalLink href={site.links.instagram}>Instagram</ExternalLink>
-            <ExternalLink href={site.links.facebook}>Facebook</ExternalLink>
-          </nav>
-        </div>
-      </footer>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <SiteFooter />
+      <JsonLd data={structuredData} />
     </div>
   )
 }
@@ -220,16 +209,9 @@ function VisitDetails() {
       <div>
         <a href={`tel:${site.telephone}`}>{site.displayPhone}</a>
         <ExternalLink href={site.links.reserve}>訂位</ExternalLink>
+        <ExternalLink href={site.links.line}>LINE 詢問</ExternalLink>
         <ExternalLink href={site.links.maps}>在 Maps 開啟</ExternalLink>
       </div>
     </address>
-  )
-}
-
-function ExternalLink({ className, href, children }: { className?: string; href: string; children: React.ReactNode }) {
-  return (
-    <a className={className} href={href} target="_blank" rel="noopener noreferrer">
-      {children}
-    </a>
   )
 }

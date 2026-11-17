@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 買咖啡 MyCoffee 官方網站
 
-## Getting Started
+https://mycoffeetaiwan.com — Next.js 16（App Router），部署在 Vercel。
 
-First, run the development server:
+## 頁面
+
+| 路徑 | 內容 |
+|---|---|
+| `/` | 首頁：來店資訊、品牌故事摘要、空間與 15 人包廂、常見問題（FAQPage 結構化資料） |
+| `/story` | 完整品牌故事（AboutPage） |
+| `/links` | 社群自介用連結頁：LINE、iCHEF 點餐/訂位、導航、電話、IG/FB/Threads |
+| `/llms.txt` | 給 AI 助理與 AI 搜尋的品牌事實摘要（[llms.txt](https://llmstxt.org)） |
+| `/sitemap.xml`、`/robots.txt` | 搜尋引擎索引 |
+
+## 修改資料
+
+店名、地址、電話、營業時間、所有外部連結、品牌故事摘要、FAQ 與 schema.org 資料都在 `src/config/site.ts`，改一處，首頁、連結頁、llms.txt 與結構化資料會一起更新。
+
+圖片規則見 `docs/adr/0001-authentic-imagery-boundary.md`：AI 生成圖只能當情境示意，畫面上必須標註「AI 生成情境示意，非店內實景」。
+
+## 開發
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bun run dev      # http://localhost:3000
+bun run check    # lint + build + 整合測試
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

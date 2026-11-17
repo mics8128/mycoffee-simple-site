@@ -113,7 +113,7 @@ test("the homepage exposes the approved visit-decision surface", async () => {
   assert.equal(response.status, 200)
   assert.match(html, /<html lang="zh-Hant"/)
   assert.match(html, /想喝杯咖啡/)
-  assert.match(html, /中壢咖啡與輕食/)
+  assert.match(html, /15 人包廂/)
   assert.match(html, /平日/)
   assert.match(html, /09:00[–-]18:00/)
   assert.match(html, /週末/)
@@ -134,8 +134,7 @@ test("the homepage integrates verified dine-in, takeout, and delivery clarity", 
   const response = await fetch(origin)
   const html = await response.text()
 
-  // Preserved nav items
-  assert.match(html, /<nav class="site-nav" aria-label="頁面導覽"><a href="#coffee">咖啡與輕食<\/a><a href="#space">店內空間<\/a><a href="#visit">來店資訊<\/a><\/nav>/)
+  assert.match(html, /<nav class="site-nav" aria-label="頁面導覽"><a href="\/story">品牌故事<\/a><a href="\/#coffee">咖啡與輕食<\/a><a href="\/#space">空間與包廂<\/a><a href="\/#visit">來店資訊<\/a><\/nav>/)
 
   // Integrated service context
   assert.match(html, /店內提供內用與外帶；外送資訊請洽門市/)
@@ -150,7 +149,7 @@ test("the homepage exposes canonical search and verified cafe data", async () =>
   const html = await (await fetch(origin)).text()
 
   assert.match(html, /<link rel="canonical" href="https:\/\/mycoffeetaiwan\.com\/?"/)
-  assert.match(html, /<meta property="og:title" content="買咖啡 MyCoffee｜中壢咖啡與輕食"/)
+  assert.match(html, /<meta property="og:title" content="買咖啡 MyCoffee｜中壢咖啡輕食・15 人包廂可聚會開會"/)
   assert.match(html, /<meta name="twitter:card" content="summary_large_image"/)
   assert.match(html, /application\/ld\+json/)
   assert.match(html, /"@type":"CafeOrCoffeeShop"/)
@@ -158,7 +157,35 @@ test("the homepage exposes canonical search and verified cafe data", async () =>
   assert.match(html, /"telephone":"\+886-3-422-6209"/)
   assert.match(html, /"postalCode":"320"/)
   assert.match(html, /"dayOfWeek":\["Monday","Tuesday","Wednesday","Thursday","Friday"\]/)
+  assert.match(html, /"@type":"FAQPage"/)
+  assert.match(html, /"@type":"WebSite"/)
   assert.doesNotMatch(html, /"priceRange"|aggregateRating|reviewCount/)
+})
+
+test("the story page tells the brand lineage and labels generated scenes", async () => {
+  const response = await fetch(`${origin}/story`)
+  const html = await response.text()
+
+  assert.equal(response.status, 200)
+  assert.match(html, /<link rel="canonical" href="https:\/\/mycoffeetaiwan\.com\/story"/)
+  assert.match(html, /迪麥便利商店/)
+  assert.match(html, /法市咖啡/)
+  assert.match(html, /榛果/)
+  assert.match(html, /"@type":"AboutPage"/)
+  assert.equal(html.match(/<figcaption[^>]*>AI 生成情境示意，非店內實景<\/figcaption>/g)?.length, 2)
+})
+
+test("llms.txt gives AI assistants the core brand facts", async () => {
+  const response = await fetch(`${origin}/llms.txt`)
+  const text = await response.text()
+
+  assert.equal(response.status, 200)
+  assert.match(response.headers.get("content-type"), /text\/plain/)
+  assert.match(text, /^# 買咖啡 MyCoffee/)
+  assert.match(text, /桃園市中壢區中央東路 52 號/)
+  assert.match(text, /15 人包廂/)
+  assert.match(text, /法市咖啡/)
+  assert(text.includes(expectedLinks.menu))
 })
 
 test("retired routes no longer expose the old experience", async () => {
@@ -170,7 +197,26 @@ test("retired routes no longer expose the old experience", async () => {
   assert.equal(prototypeResponse.status, 404)
 })
 
-test("robots and sitemap expose only the canonical homepage", async () => {
+test("the links page exposes LINE, ordering, reservation, and social profiles", async () => {
+  const response = await fetch(`${origin}/links`)
+  const hrefs = hrefsFrom(await response.text())
+
+  assert.equal(response.status, 200)
+  for (const href of [
+    "https://line.me/R/ti/p/@925tnupb",
+    expectedLinks.menu,
+    expectedLinks.reserve,
+    expectedLinks.maps,
+    expectedLinks.instagram,
+    expectedLinks.facebook,
+    "https://www.threads.com/@mycoffeetaiwan",
+    "tel:+886-3-422-6209",
+  ]) {
+    assert(hrefs.has(href), href)
+  }
+})
+
+test("robots and sitemap expose the public pages", async () => {
   const robotsResponse = await fetch(`${origin}/robots.txt`)
   const robots = await robotsResponse.text()
   const sitemapResponse = await fetch(`${origin}/sitemap.xml`)
@@ -183,6 +229,8 @@ test("robots and sitemap expose only the canonical homepage", async () => {
 
   assert.equal(sitemapResponse.status, 200)
   assert.match(sitemap, /<loc>https:\/\/mycoffeetaiwan\.com\/<\/loc>/)
+  assert.match(sitemap, /<loc>https:\/\/mycoffeetaiwan\.com\/story<\/loc>/)
+  assert.match(sitemap, /<loc>https:\/\/mycoffeetaiwan\.com\/links<\/loc>/)
   assert.doesNotMatch(sitemap, /bean-match|prototype/)
 })
 
