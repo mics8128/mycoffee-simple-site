@@ -204,6 +204,7 @@ test("the links page exposes LINE, ordering, reservation, and social profiles", 
   assert.equal(response.status, 200)
   for (const href of [
     "https://line.me/R/ti/p/@925tnupb",
+    "https://mai-coffee-breakfast.blackbean4096.chatgpt.site/",
     expectedLinks.menu,
     expectedLinks.reserve,
     expectedLinks.maps,

@@ -41,6 +41,7 @@ export const site = {
     facebook: "https://www.facebook.com/mycoffeetaiwan/",
     threads: "https://www.threads.com/@mycoffeetaiwan",
     line: "https://line.me/R/ti/p/@925tnupb",
+    breakfast: "https://mai-coffee-breakfast.blackbean4096.chatgpt.site/",
   },
 } as const
 

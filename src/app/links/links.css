@@ -238,6 +238,22 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
+.links-button[data-tone="morning"] {
+  border-color: transparent;
+  background: #f2c14e;
+  color: var(--ink);
+}
+
+.links-button[data-tone="morning"] .links-icon {
+  background: rgba(255, 255, 255, 0.45);
+  color: var(--orange);
+}
+
+.links-button[data-tone="morning"] small,
+.links-button[data-tone="morning"] .links-arrow svg {
+  color: rgba(23, 20, 17, 0.72);
+}
+
 .links-footer {
   padding: 1.25rem 1rem 1.5rem;
   text-align: center;

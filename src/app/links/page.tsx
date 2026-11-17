@@ -27,6 +27,13 @@ const icons = {
       <path d="M3 6h18M16 10a4 4 0 0 1-8 0" />
     </>
   ),
+  breakfast: (
+    <>
+      <path d="M17 8h1a4 4 0 0 1 0 8h-1" />
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z" />
+      <path d="M6 2v2M10 2v2M14 2v2" />
+    </>
+  ),
   reserve: (
     <>
       <rect x="3" y="4" width="18" height="18" rx="2" />
@@ -69,6 +76,7 @@ function Icon({ name }: { name: keyof typeof icons }) {
 
 const actions = [
   { icon: "line", label: "加入 LINE 好友", note: "直接傳訊息問我們", href: site.links.line, tone: "line" },
+  { icon: "breakfast", label: "快速早餐訂購", note: "49 元早餐自由配，LINE 預訂取餐", href: site.links.breakfast, tone: "morning" },
   { icon: "order", label: "線上點餐", note: "iCHEF 最新菜單", href: site.links.menu, tone: "accent" },
   { icon: "reserve", label: "線上訂位", note: "選好時間，留個位子", href: site.links.reserve },
   { icon: "maps", label: "導航到店", note: site.address.display, href: site.links.maps },

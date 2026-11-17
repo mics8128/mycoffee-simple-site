@@ -32,6 +32,7 @@ ${faqs.map((f) => `### ${f.q}\n\n${f.a}`).join("\n\n")}
 - [所有連結](${site.origin}/links)
 - [最新菜單（iCHEF）](${site.links.menu})
 - [線上訂位（iCHEF）](${site.links.reserve})
+- [早餐預訂（49 元自由配，LINE 預訂取餐）](${site.links.breakfast})
 - [Google 地圖導航](${site.links.maps})
 - [LINE 官方帳號](${site.links.line})
 - [Instagram](${site.links.instagram})
